@@ -2,16 +2,22 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #f6f2ff;   /* light purple background */
+    background-color: #f6f2ff;
     color: #333;
+}
+
+/* ===== Layout ===== */
+header, section, footer {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
 }
 
 /* ===== Header ===== */
 header {
-    background-color: #7b2cbf;  /* main purple */
+    background-color: #7b2cbf;
     color: white;
     text-align: center;
-    padding: 30px 15px;
 }
 
 header h1 {
@@ -40,22 +46,17 @@ nav a:hover {
 }
 
 /* ===== Sections ===== */
-header, section, footer {
-    max-width: 1000px;
-    margin: auto;
+section {
+    background: white;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 section h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #7b2cbf;
-}
-
-section {
-    background: white;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 /* ===== Projects ===== */
@@ -72,8 +73,10 @@ section {
     padding: 20px;
     border-radius: 8px;
     width: 280px;
+    max-width: 90%;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
     text-align: center;
+    transition: 0.3s;
 }
 
 .card h3 {
@@ -91,10 +94,13 @@ form {
     flex-direction: column;
     gap: 15px;
     max-width: 500px;
+    width: 90%;
     margin: auto;
 }
 
 input, textarea {
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -117,7 +123,7 @@ button {
 }
 
 button:hover {
-    background-color: #5a189a;  /* darker purple */
+    background-color: #5a189a;
 }
 
 /* ===== Footer ===== */
@@ -130,8 +136,7 @@ footer {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 600px) {
-
+@media (max-width: 768px) {
     nav a {
         display: block;
         margin: 8px;
@@ -141,4 +146,8 @@ footer {
         padding: 20px;
     }
 
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
