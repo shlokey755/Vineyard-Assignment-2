@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PORTFOLIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="Style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Shlok Gupta</h1>
+        <p>Learn. Improve. Grow.</p>
+    </header>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT US</a>
+    </nav>
+    <section id="home">
+        <p>I enjoy coding and playing games.</p>
+        <h3>My hobby:-</h3>
+        <ol id="hobbyList">
+            <li>Playing Football</li>
+            <li>Coding</li>
+            <li>Watching Shows</li>
+        </ol>
+
+        <input type="text" id="hobbyInput" placeholder="Add hobby benefit">
+        <button onclick="addHobby()">Add</button>
+    </section>
+
+    <section id="about">
+        <p>I am 18 years old and eager to learn about new things.</p>
+    </section>
+
+    <section id="projects">
+        <h2>PROJECTS</h2>
+        <div class="project-container">
+            <div class="card">
+                <h3>CASHFLOW CALCULATOR</h3>
+            </div>
+            <div class="card">
+                <h3>STOCK MARKET ANALYSIS</h3>
+            </div>
+            <div class="card">
+                <h3>FOOTBALL TRANSFER WINDOW</h3>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form onsubmit="return submitForm()">type="text"
+            <input type="text" placeholder="Name"><br>
+            <input type="email" placeholder="Name"><br>
+            <textarea placeholder="Message"></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>CONTACT US!</p>
+        <nav>
+            <a href="linkedin">LinkedIn</a>
+        </nav>
+        <nav>
+            <a href="github">GitHub</a>
+        </nav>
+        <p id="dateTime"></p>
+    </footer>
+
+<script>
+
+// Function to add delete button to every list item
+function addDeleteButton(li){
+
+let deleteBtn = document.createElement("button");
+deleteBtn.textContent = " Delete";
+
+deleteBtn.onclick = function(){
+li.remove();
+};
+
+li.appendChild(deleteBtn);
+
+}
+
+
+// Add Hobby Item
+function addHobby(){
+
+let input = document.getElementById("hobbyInput");
+let text = input.value;
+
+if(text === "") return;
+
+let li = document.createElement("li");
+li.textContent = text;
+
+addDeleteButton(li);
+
+document.getElementById("hobbyList").appendChild(li);
+
+input.value = "";
+
+}
+
+
+// Add delete buttons to existing list items
+window.onload = function(){
+
+let items = document.querySelectorAll("#hobbyList li");
+
+items.forEach(function(li){
+addDeleteButton(li);
+});
+
+showDateTime();
+
+}
+
+
+// Contact Form Alert
+function submitForm(){
+alert("Form submitted successfully!");
+return true;
+}
+
+
+// Dynamic Date and Time
+function showDateTime(){
+
+let now = new Date();
+
+document.getElementById("dateTime").innerHTML =
+now.toLocaleString();
+
+}
+
+setInterval(showDateTime,1000);
+
+</script>
+
+</body>
+</html>
