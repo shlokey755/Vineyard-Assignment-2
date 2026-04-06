@@ -1,142 +1,135 @@
-/* ===== Body ===== */
+/* ===== Base ===== */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: #f6f2ff;
-    color: #333;
-}
-
-/* ===== Layout ===== */
-header, section, footer {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+    color: #2b2b2b;
 }
 
 /* ===== Header ===== */
 header {
-    background-color: #7b2cbf;
+    background: #7b2cbf;
     color: white;
     text-align: center;
+    padding: 40px 20px;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 28px;
+    font-size: 32px;
+    margin-bottom: 5px;
 }
 
 /* ===== Navbar ===== */
 nav {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 12px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: transparent;
+    padding: 15px;
 }
 
 nav a {
-    display: inline-block;
-    margin: 8px 12px;
-    color: #333;
     text-decoration: none;
+    color: #7b2cbf;
     font-weight: 600;
+    position: relative;
 }
 
-nav a:hover {
-    color: #7b2cbf;
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: #7b2cbf;
+    width: 0;
+    transition: 0.3s;
+    margin-top: 3px;
 }
 
-/* ===== Sections ===== */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Sections (FLAT LOOK) ===== */
 section {
-    background: white;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 10px 20px;
 }
 
+/* remove heavy boxes */
 section h2 {
-    text-align: center;
-    margin-bottom: 25px;
     color: #7b2cbf;
+    text-align: left;
 }
 
-/* ===== Projects ===== */
-.project-container {
+/* ===== Hobby List ===== */
+#hobbyList li {
+    background: #fff;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    list-style: none;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* ===== Cards ===== */
-.card {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 280px;
-    max-width: 90%;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: 0.3s;
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.card h3 {
-    margin-top: 0;
-    color: #7b2cbf;
+.card {
+    flex: 1 1 250px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: 0.25s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    border-color: #7b2cbf;
 }
 
 /* ===== Form ===== */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    width: 90%;
-    margin: auto;
+    max-width: 400px;
+    margin-top: 10px;
 }
 
 input, textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-family: 'Montserrat', sans-serif;
-}
-
-input:focus, textarea:focus {
-    border-color: #7b2cbf;
-    outline: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
 button {
-    padding: 12px;
-    background-color: #7b2cbf;
+    background: #7b2cbf;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #5a189a;
+    background: #5a189a;
 }
 
 /* ===== Footer ===== */
 footer {
-    background-color: #7b2cbf;
-    color: white;
     text-align: center;
-    padding: 20px;
+    background: transparent;
+    color: #7b2cbf;
     margin-top: 40px;
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+
     nav a {
         display: block;
         margin: 8px;
@@ -146,8 +139,4 @@ footer {
         padding: 20px;
     }
 
-    .project-container {
-        flex-direction: column;
-        align-items: center;
-    }
 }
